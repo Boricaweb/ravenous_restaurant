@@ -3,21 +3,21 @@ import './Business.css';
 
 function Business() {
   const business = {
-    image: '#',
-    name: 'Pizza',
-    address: '111/222',
-    city: 'Denver',
-    state: 'Colorado',
-    zipCode: '888765',
-    category: 'Italian food',
-    rating: '5 star',
-    'review count': '80'
+    image: ['#'],
+    name: ['Pizza'],
+    address: ['111/222'],
+    city: ['Denver'],
+    state: ['Colorado'],
+    zipCode: ['888765'],
+    category: ['cuisine'],
+    rating: ['default'],
+    contact: ['80']
   }
 
   return (
     <React.StrictMode>
       <section id='restaurant'>
-        <img src={business.image}/>
+        <img src={business.image} alt='resaturant profile'/>
         <h2>{business.name}</h2>
         <detail className='res-into'>
           <address>
@@ -28,7 +28,7 @@ function Business() {
           <div className='additional'>
             <p className='category'>{business.category}</p>
             <p className='rating'>{business.rating}</p>
-            <p className='review-count'>{business['review count']}</p>
+            <p className='review-count'>{business.contact}</p>
           </div>
         </detail>
       </section>
