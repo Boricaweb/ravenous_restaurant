@@ -2,10 +2,7 @@ import Business from './Business'
 import React from 'react'
 
 const BusinessList = () => {
-    return (
-        <React.StrictMode>
-            <section id='restaurant'>
-                <img src='public\restaurant_img.jpg' alt='resaturant profile'/>
+    /*<img src='public\restaurant_img.jpg' alt='resaturant profile'/>
                 <h2>business.name</h2>
                 <detail className='res-into'>
                     <address>
@@ -15,13 +12,18 @@ const BusinessList = () => {
                     </address>
                     <div className='additional'>
                         <p className='category'>business.category</p>
-                        <p className='rating'>business.rating</p>
-                        <p className='review-count'>business.contact</p>
+                        <p className='rating'>-</p>
+                        <p className='contact'>business.contact</p>
                     </div>
                 </detail>
+    */
+   const objString = Business();
+    return (
+        <React.StrictMode>
+            <section id='restaurant'>
+                <p>{objString}</p>
             </section>
         </React.StrictMode>   
     ) 
 };
-
 export default BusinessList;
