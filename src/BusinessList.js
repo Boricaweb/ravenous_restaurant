@@ -1,8 +1,8 @@
-import Business from './Business'
-import React from 'react'
+import Business from "./Business";
+import { StrictMode } from "react";
 
 const BusinessList = () => {
-    /*<img src='public\restaurant_img.jpg' alt='resaturant profile'/>
+  /*<img src='public\restaurant_img.jpg' alt='resaturant profile'/>
                 <h2>business.name</h2>
                 <detail className='res-into'>
                     <address>
@@ -17,13 +17,17 @@ const BusinessList = () => {
                     </div>
                 </detail>
     */
-   const objString = Business();
+   Business
+   .then(response => {
     return (
-        <React.StrictMode>
-            <section id='restaurant'>
-                <p>{objString}</p>
-            </section>
-        </React.StrictMode>   
-    ) 
+    <StrictMode>
+      <section id="restaurant">
+        {response}
+      </section>
+    </StrictMode>
+    );
+   })
+   .catch(error => console.error(error))
+  
 };
 export default BusinessList;
