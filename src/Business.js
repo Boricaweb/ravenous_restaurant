@@ -1,9 +1,7 @@
 //import Place  from './SearchBar' below
 //..............................//
-
-import {useState, useEffect, Suspense} from 'react'
-
-const Loading = () => <h1>Loading...</h1>;
+import restaurant_img from './restaurant_img.jpg'
+import {useState, useEffect, StrictMode} from 'react'
 
 const Business = () => {
   //Set Hook useState part
@@ -51,13 +49,36 @@ const Business = () => {
   error && <h1>Something go wrong: {error}</h1>;
 
   return (
-    <Suspense fallback={<Loading />}>
-      <div>
+    <StrictMode>
+      <div className='row m-5'>
         {data.map((item) => {
-          return <p key={item.properties.lon}>{item.properties.name}</p>;
+          return (
+            <div  key={item.properties.lon} className='col-md-4 my-3'>
+              <div cassName='card'>
+                <img className='card-img-top' src={restaurant_img} alt='restuarant profile'/>
+                <div cassName='card-body'>
+                  <div className='res-name m-2'>
+                    <h2>{item.properties.name}</h2>
+                  </div> 
+                  <div className='res-info d-flex m-2'>
+                    <div className='address'>
+                      <p>{item.properties.housenumber}</p>
+                      <p>{item.properties.city}</p>
+                      <p>{item.properties.state}</p>
+                      <p>{item.properties.postcode}</p>
+                    </div>
+                    <div className='category'>
+                      {item.properties.datasource.raw.cuisine ? <p>{item.properties.datasource.raw.cuisine}</p> : <p>no info</p>}
+                      {item.properties.datasource.raw.phone ? <p>{item.properties.datasource.raw.phone}</p> : <p>no info</p>}
+                    </div>               
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
         })}
       </div>   
-    </Suspense>   
+    </StrictMode>   
   )
 
 };
