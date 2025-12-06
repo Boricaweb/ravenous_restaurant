@@ -17,17 +17,13 @@ const BusinessList = () => {
                     </div>
                 </detail>
     */
-   Business
-   .then(response => {
-    return (
+
+  return (
     <StrictMode>
       <section id="restaurant">
-        {response}
+        <Business />
       </section>
     </StrictMode>
-    );
-   })
-   .catch(error => console.error(error))
-  
+    );  
 };
 export default BusinessList;

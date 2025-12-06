@@ -1,80 +1,65 @@
 //import Place  from './SearchBar' below
+//..............................//
 
+import {useState, useEffect, Suspense} from 'react'
+
+const Loading = () => <h1>Loading...</h1>;
 
 const Business = () => {
+  //Set Hook useState part
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(false);
+
   //Fetching data from Website Geoapify
   //URL for restaurant api
   const eatUrl = "https://api.geoapify.com/v2/places?categories=catering.restaurant&filter=place:";
   const remainEatUrl = "&limit=6&apiKey=";
+
   //URL for place convert to place-id which use in restaurant API
   const placeUrl = "https://api.geoapify.com/v1/geocode/search?text=";
   const remainPlaceUrl = "&format=json&apiKey=";
+
   //My API Key
   const apiKey = "6d03dc4a957141a980faf1ed4892d289";
-  //Restaurant data object
-  let business = {
-    resName: [],
-    address: [],
-    resCity: [],
-    resState: [],
-    zipcode: [],
-    category: [],
-    contact: [],
-  };
 
   ////////Fetching part////////
-
   ///Async...Await version --> error occur, said cannot use async in client side///
-  //Fetching place-id part
-  /*const placeResponse = await fetch(`${placeUrl}London${remainPlaceUrl}${apiKey}`);
-  if (placeResponse.ok) {
-    let placeJson = await placeResponse.json();
-    const placeId = placeJson.results[0].place_id;
-  //Fetching restaurant part
-    const eatResponse = await fetch(`${eatUrl}${placeId}${remainEatUrl}${apiKey}`);
-    if (eatResponse.ok) {
-      let eatJson = await eatResponse.json();
-      let eatObjItem = eatJson.features;
-      eatObjItem.forEach(item => {
-        business.resName.push(item.properties.name);
-        business.address.push(item.properties.housenumber);
-        business.resCity.push(item.properties.city);       
-        business.resState.push(item.properties.state);
-        business.zipcode.push(item.properties.postcode);
-        business.category.push(item.properties.datasource.raw.cuisine);
-        business.contact.push(item.properties.datasource.raw.phone);
-      })
-    } else {
-      throw new Error('Restaurant API request fail!');
+  //Set Hook useEffect part for async and await function
+  useEffect(() => {
+    const fetchData = async () => {
+      //Retrieve place-id by convert place name from another compenent
+      const placeResponse = await fetch(`${placeUrl}London${remainPlaceUrl}${apiKey}`);
+      try {
+        if (!placeResponse.ok) {
+          throw new Error('Fetching place-id API False');
+        }
+        const placeJson = await placeResponse.json();
+        const placeId = placeJson.results[0].place_id;
+        const eatResponse = await fetch(`${eatUrl}${placeId}${remainEatUrl}${apiKey}`);
+        if (!eatResponse.ok) {
+          throw new Error('Fetching restaurant API False');
+        }
+        const eatJson = await eatResponse.json();
+        setData(eatJson.features);
+      } catch(err) {
+        setError(err);
+      }
     }
-  } else {
-    throw new Error('Place API request fail!');
-  }   
-  } catch (error) {
-    console.log(error);
-  }*/
+    fetchData();
+  }, [])
 
-  ///Promise version///
-  fetch(`${placeUrl}New York${remainPlaceUrl}${apiKey}`)
-    .then((placeResponse) => placeResponse.json())
-    .then((placeJson) => placeJson.results[0].place_id)
-    .then((placeId) => fetch(`${eatUrl}${placeId}${remainEatUrl}${apiKey}`))
-    .then((eatResponse) => eatResponse.json())
-    .then((eatJson) => eatJson.features)
-    //Maybe the issue begin with the Array method systax
-    .then((eatObjItem) => {
-      eatObjItem.forEach((item) => {
-        business.resName.push(item.properties.name);
-        business.address.push(item.properties.housenumber);
-        business.resCity.push(item.properties.city);
-        business.resState.push(item.properties.state);
-        business.zipcode.push(item.properties.postcode);
-        business.category.push(item.properties.datasource.raw.cuisine);
-        business.contact.push(item.properties.datasource.raw.phone);
-      });
-      return business;
-    })
-    .catch((error) => console.error(error));
+  error && <h1>Something go wrong: {error}</h1>;
+
+  return (
+    <Suspense fallback={<Loading />}>
+      <div>
+        {data.map((item) => {
+          return <p key={item.properties.lon}>{item.properties.name}</p>;
+        })}
+      </div>   
+    </Suspense>   
+  )
+
 };
 //Export function
 export default Business;
