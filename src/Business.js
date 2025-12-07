@@ -11,7 +11,8 @@ const Business = () => {
   //Fetching data from Website Geoapify
   //URL for restaurant api
   const eatUrl = "https://api.geoapify.com/v2/places?categories=catering.restaurant&filter=place:";
-  const remainEatUrl = "&limit=6&apiKey=";
+  const firstRemainEatUrl = "&limit=";
+  const secondRemainEatUrl = "&apiKey=";
 
   //URL for place convert to place-id which use in restaurant API
   const placeUrl = "https://api.geoapify.com/v1/geocode/search?text=";
@@ -25,7 +26,7 @@ const Business = () => {
   //Set Hook useEffect part for async and await function
   useEffect(() => {
     const fetchData = async () => {
-      //Retrieve place-id by convert place name from another compenent
+      //Retrieve place-id by convert place name from another compenent input --> London
       const placeResponse = await fetch(`${placeUrl}London${remainPlaceUrl}${apiKey}`);
       try {
         if (!placeResponse.ok) {
@@ -33,7 +34,8 @@ const Business = () => {
         }
         const placeJson = await placeResponse.json();
         const placeId = placeJson.results[0].place_id;
-        const eatResponse = await fetch(`${eatUrl}${placeId}${remainEatUrl}${apiKey}`);
+        //import amout of restaurant from another compenent input --> 20
+        const eatResponse = await fetch(`${eatUrl}${placeId}${firstRemainEatUrl}20${secondRemainEatUrl}${apiKey}`);
         if (!eatResponse.ok) {
           throw new Error('Fetching restaurant API False');
         }
@@ -50,26 +52,26 @@ const Business = () => {
 
   return (
     <StrictMode>
-      <div className='row m-5'>
+      <div className='row m-3'>
         {data.map((item) => {
           return (
-            <div  key={item.properties.lon} className='col-md-4 my-3'>
-              <div cassName='card'>
+            <div  key={item.properties.lon} className='col-md-4 col-sm-6 my-3 p-4'>
+              <div className='my-card card'>
                 <img className='card-img-top' src={restaurant_img} alt='restuarant profile'/>
-                <div cassName='card-body'>
-                  <div className='res-name m-2'>
-                    <h2>{item.properties.name}</h2>
+                <div className='card-body'>
+                  <div className='res-name d-flex justify-content-center'>
+                    <h3>{item.properties.name}</h3>
                   </div> 
-                  <div className='res-info d-flex m-2'>
+                  <div className='res-info py-3 d-flex justify-content-around'>
                     <div className='address'>
-                      <p>{item.properties.housenumber}</p>
-                      <p>{item.properties.city}</p>
-                      <p>{item.properties.state}</p>
-                      <p>{item.properties.postcode}</p>
+                      {item.properties.housenumber ? <p>{item.properties.housenumber}</p> : <p>Not available</p>}
+                      {item.properties.city ? <p>{item.properties.city}</p> : <p>Not available</p>}
+                      {item.properties.state ? <p>{item.properties.state}</p> : <p>Not available</p>}
+                      {item.properties.postcode ? <p>{item.properties.postcode}</p> : <p>Not available</p>}
                     </div>
-                    <div className='category'>
-                      {item.properties.datasource.raw.cuisine ? <p>{item.properties.datasource.raw.cuisine}</p> : <p>no info</p>}
-                      {item.properties.datasource.raw.phone ? <p>{item.properties.datasource.raw.phone}</p> : <p>no info</p>}
+                    <div className='category d-flex flex-column align-items-center'>
+                      {item.properties.datasource.raw.cuisine ? <p>{item.properties.datasource.raw.cuisine}</p> : <p>Not available</p>}
+                      {item.properties.datasource.raw.phone ? <p>{item.properties.datasource.raw.phone}</p> : <p>Not available</p>}
                     </div>               
                   </div>
                 </div>

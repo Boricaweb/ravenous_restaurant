@@ -5,7 +5,7 @@ const BusinessList = () => {
 
   return (
     <StrictMode>
-      <section className='restaurant container'>
+      <section className='restaurant container-fluid'>
         <Business />
       </section>
     </StrictMode>
