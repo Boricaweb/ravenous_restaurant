@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.css';
 import BusinessList from './BusinessList';
+import SearchBar from './SearchBar';
 import reportWebVitals from './reportWebVitals';
 
 const Loading = () => <h1>Loading...</h1>;
@@ -9,6 +10,7 @@ const Loading = () => <h1>Loading...</h1>;
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Suspense fallback={<Loading />}>
+    <SearchBar />
     <BusinessList />
   </Suspense>
 );

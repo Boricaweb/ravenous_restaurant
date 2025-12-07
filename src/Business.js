@@ -1,5 +1,5 @@
 //import Place  from './SearchBar' below
-//..............................//
+import SearchBar from './SearchBar'
 import {useState, useEffect} from 'react'
 
 const Business = () => {
