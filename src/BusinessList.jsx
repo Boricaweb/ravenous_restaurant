@@ -1,14 +1,13 @@
-import Business from "./Business";
 import { StrictMode } from "react";
 import restaurant_img from './restaurant_img.jpg'
 
-const BusinessList = () => {
+const BusinessList = ({userRes}) => {
 
   return (
     <StrictMode>
       <section className='restaurant container-fluid'>
         <div className='row m-3'>
-          {Business().map((item) => {
+          {userRes.map((item) => {
             return (
               <div  key={item.properties.lon} className='col-md-4 col-sm-6 my-3 p-4'>
                 <div className='my-card card'>
@@ -37,7 +36,7 @@ const BusinessList = () => {
         </div>   
       </section>
     </StrictMode>
-    );  
+  );  
 };
 
 export default BusinessList;
