@@ -31,7 +31,12 @@ const App = () => {
           onFetchApi={returnData}
         />
       )}
-      <BusinessList userRes={restaurants} />
+      {searchValue ? <BusinessList userRes={restaurants} /> : 
+      <h1 
+        className='container-fluid d-flex justify-content-center align-items-center'>
+        Please enter a new location and number of restaurants to search.
+      </h1> 
+      }
     </>
   );
 };

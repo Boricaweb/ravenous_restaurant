@@ -51,7 +51,8 @@ const Business = ({userPlace, userNumber, onFetchApi}) => {
   }, [userPlace, userNumber, onFetchApi, data]);
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    console.error(`Error: ${error.message}`);
+    return null;
   }
 
   return null;

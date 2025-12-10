@@ -14,7 +14,7 @@ const SearchBar = ({onSearch}) => {
 
     return (
     <>
-        <div className="container-fluid p-4 d-flex flex-column justify-content-center">
+        <div className="search-bar container-fluid p-4 d-flex flex-column justify-content-center">
             <form
             onSubmit={returnValue} /*when submit, call returnValue function*/
             className="d-flex flex-column align-items-center"
@@ -38,7 +38,7 @@ const SearchBar = ({onSearch}) => {
                     />
                 </div>
                 <button
-                    className="btn btn-primary row m-2 d-flex justify-content-center"
+                    className="my-btn row m-2 d-flex justify-content-center"
                     type="submit"
                     style={{ width: "6rem" }}
                 >

@@ -72,3 +72,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### Resource
 
 Restaurant image: Photo by Anna Tukhfatullina Food Photographer/Stylist: https://www.pexels.com/photo/flatlay-photography-of-white-ceramic-bowl-2611817/
+
+Search bar image: Photo by Alberta Studios: https://www.pexels.com/photo/mouthwatering-foods-on-the-table-9738985/
