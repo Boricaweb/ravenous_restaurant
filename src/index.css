@@ -41,12 +41,13 @@
 }
 
 /*HTML class setting part*/
+body,
 .search-bar,
 .restaurant {
   background-color: hsl(205, 40%, 14%);
 }
 .search-bar {
-  height: 15rem;
+  height: 10rem;
   background-image: url("../public/nav_bg.jpg");
   background-size: cover;
 }
@@ -57,10 +58,31 @@
 .my-card:hover {
   box-shadow: 0 0 30px hsl(174, 100%, 50%);
 }
+.my-btn {
+  border: 0.1rem solid rgb(166, 221, 255);
+  border-radius: 0.2rem;
+  padding: 0.5rem;
+  color: white;
+  background-color: rgb(2, 156, 252);
+  box-shadow: 3px 2px 0 2px rgb(5, 113, 255);
+  transition: 0.1s;
+}
+.my-btn:hover {
+  background-color: rgb(0, 58, 133);
+}
+.my-btn:active {
+  transform: translate(3px);
+  box-shadow: none;
+}
 
 /*HTML tag setting part*/
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 h2 {
-  color: rgb(47, 141, 255);
+  color: rgb(0, 82, 183);
   font-size: 1.7rem;
   font-weight: bold;
 }
@@ -73,19 +95,4 @@ p {
   font-size: 1rem;
   font-weight: normal;
 }
-.my-btn {
-  border: none;
-  border-radius: 0.2rem;
-  padding: 0.5rem;
-  color: white;
-  background-color: rgb(2, 156, 252);
-  box-shadow: 3px 2px 0 2px rgb(5, 113, 255);
-  transition: 0.1s;
-}
-button:hover {
-  background-color: rgb(0, 58, 133);
-}
-button:active {
-  transform: translate(3px);
-  box-shadow: none;
-}
+

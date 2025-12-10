@@ -14,7 +14,7 @@ const SearchBar = ({onSearch}) => {
 
     return (
     <>
-        <div className="search-bar container-fluid p-4 d-flex flex-column justify-content-center">
+        <nav className="search-bar container-fluid p-4 d-flex flex-column justify-content-center">
             <form
             onSubmit={returnValue} /*when submit, call returnValue function*/
             className="d-flex flex-column align-items-center"
@@ -45,7 +45,7 @@ const SearchBar = ({onSearch}) => {
                     Let's go!
                 </button>
             </form>
-        </div>
+        </nav>
     </>
     );
 }

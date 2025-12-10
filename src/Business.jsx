@@ -43,8 +43,8 @@ const Business = ({userPlace, userNumber, onFetchApi}) => {
         setData(eatJson.features);
         //Send fetched data to App component
         onFetchApi(eatJson.features);
-      } catch(err) {
-        setError(err);
+      } catch(error) {
+        setError(error);
       }
     }
     fetchData();
@@ -52,6 +52,7 @@ const Business = ({userPlace, userNumber, onFetchApi}) => {
 
   if (error) {
     console.error(`Error: ${error.message}`);
+    //Send error message to App component
     return null;
   }
 

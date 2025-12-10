@@ -21,6 +21,7 @@ const App = () => {
     setRestaurants(data);
   };
 
+
   return (
     <>
       <SearchBar onSearch={searchValue} />
@@ -31,9 +32,9 @@ const App = () => {
           onFetchApi={returnData}
         />
       )}
-      {searchValue ? <BusinessList userRes={restaurants} /> : 
+      {restaurants ? <BusinessList userRes={restaurants} /> : 
       <h1 
-        className='container-fluid d-flex justify-content-center align-items-center'>
+        >
         Please enter a new location and number of restaurants to search.
       </h1> 
       }
