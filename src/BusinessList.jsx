@@ -8,7 +8,7 @@ const BusinessList = ({userRes}) => {
         <div className='row'>
           {userRes.map((item) => {
             return (
-              <div  key={item.properties.lon} className='col-md-4 col-sm-6 my-3 p-4'>
+              <div  key={item.properties.lon} className='col-md-6 col-lg-4 col-xxl-3 my-3 p-4'>
                 <div className='my-card card'>
                   <img className='card-img-top' src={restaurant_img} alt='restuarant profile'/>
                   <div className='card-body'>
@@ -20,7 +20,7 @@ const BusinessList = ({userRes}) => {
                         <h3>Address:</h3>
                         {item.properties.housenumber ? <p>{item.properties.housenumber}</p> : <p>-</p>}
                         {item.properties.city ? <p>{item.properties.city}</p> : <p>-</p>}
-                        {item.properties.state ? <p>{item.properties.state}</p> : <p>-</p>}
+                        {item.properties.state ? <p>{item.properties.state}</p> : <p>{item.properties.suburb}</p>}
                         {item.properties.postcode ? <p>{item.properties.postcode}</p> : <p>-</p>}
                       </div>
                       <div className='category col d-flex flex-column flex-wrap align-items-center text-center'>

@@ -83,16 +83,16 @@ nav {
 }
 h2 {
   color: rgb(0, 82, 183);
-  font-size: 1.7rem;
+  font-size: clamp(1.5rem, 2vw, 2.5rem);
   font-weight: bold;
 }
 h3 {
-  font-size: 1.2rem;
+  font-size: clamp(1.2rem, 1.3vw, 1.8rem);
   font-weight: bold;
 }
 p {
   line-height: 0.8rem;
-  font-size: 1rem;
+  font-size: clamp(0.8rem, 1.2vw, 1.2rem);
   font-weight: normal;
 }
 

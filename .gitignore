@@ -24,3 +24,9 @@ yarn-error.log*
 
 #Secret info (API KEY)
 .env
+
+# AI generated files
+.github
+
+# IDEs and editors
+.vscode
