@@ -33,7 +33,7 @@ const App = () => {
       {placePara !== "" && numberPara !== "" ? (
         <BusinessList userRes={restaurants} />
       ) : (
-        <p className="text-center display-6 text-danger m-5">
+        <p className="error-text text-center text-danger py-5 m-2">
           Please enter a new location and number of restaurants to search.
         </p>
       )}

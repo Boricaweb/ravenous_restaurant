@@ -35,10 +35,28 @@
   font-display: fallback;
 }
 
+
+/*Card colorful animation*/
+@keyframes gradientAnimation {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+
 /*Global setting part*/
 #root {
   font-family: "SourGummy", sans-serif, Arial, Helvetica, sans-serif;
 }
+
 
 /*HTML class setting part*/
 body,
@@ -47,16 +65,25 @@ body,
   background-color: hsl(205, 40%, 14%);
 }
 .search-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   height: 10rem;
-  background-image: url("../public/nav_bg.jpg");
+  background-image: url("./resources/nav_bg.jpg");
   background-size: cover;
 }
 .my-card {
+  position: relative;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.5s;
 }
 .my-card:hover {
   box-shadow: 0 0 30px hsl(174, 100%, 50%);
+}
+.my-card-body, .my-card-image, .res-name, .res-info {
+  position: relative;
+  z-index: 5;
+  background-color: rgb(255,255,255);
 }
 .my-btn {
   border: 0.1rem solid rgb(166, 221, 255);
@@ -75,18 +102,63 @@ body,
   box-shadow: none;
 }
 
-/*HTML tag setting part*/
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 10;
+
+/*Card colorful border effect*/
+.my-card::before,
+.my-card::after {
+  --angle: 0deg;
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -5px;
+  width: 103%;
+  height: 102%;
+  border-radius: 0.5rem;
+  background-image: conic-gradient(from var(--angle), transparent 65%,
+    rgb(119, 119, 255),
+    rgb(255, 0, 179),
+    rgb(255, 0, 115)
+  );
+  background-size: 100% 100%;
+  animation: gradientAnimation 3s ease infinite;
+  z-index: 1;
+  -webkit-animation: gradientAnimation 3s ease infinite;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
 }
-h2 {
+.my-card::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+  -webkit-filter: blur(1.5rem);
+}
+.error-text {
   color: rgb(0, 82, 183);
   font-size: clamp(1.5rem, 2vw, 2.5rem);
   font-weight: bold;
+  line-height: 2rem;
 }
-h3 {
+
+
+/*HTML tag setting part*/
+h1 {
+  color: rgb(0, 82, 183);
+  font-size: clamp(1.5rem, 2vw, 2.5rem);
+  font-weight: bold;
+  background: linear-gradient(
+    to top left,
+    hsl(168, 100%, 78%),
+    rgb(119, 119, 255),
+    rgb(3, 254, 3)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+h2 {
   font-size: clamp(1.2rem, 1.3vw, 1.8rem);
   font-weight: bold;
 }
@@ -95,4 +167,3 @@ p {
   font-size: clamp(0.8rem, 1.2vw, 1.2rem);
   font-weight: normal;
 }
-
