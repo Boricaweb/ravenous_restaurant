@@ -15,6 +15,9 @@ const SearchBar = ({onSearch}) => {
     return (
     <>
         <nav className="search-bar container-fluid p-4 d-flex flex-column justify-content-center">
+            <section className='web-name d-flex justify-content-center p-1 mb-3'>
+                <h1 className='text-center'>RAVENOUS Restaurant</h1>
+            </section>
             <form
             onSubmit={returnValue} /*when submit, call returnValue function*/
             className="d-flex flex-column align-items-center"

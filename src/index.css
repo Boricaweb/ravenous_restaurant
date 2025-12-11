@@ -35,7 +35,6 @@
   font-display: fallback;
 }
 
-
 /*Card colorful animation*/
 @keyframes gradientAnimation {
   from {
@@ -51,12 +50,10 @@
   inherits: false;
 }
 
-
 /*Global setting part*/
 #root {
   font-family: "SourGummy", sans-serif, Arial, Helvetica, sans-serif;
 }
-
 
 /*HTML class setting part*/
 body,
@@ -68,7 +65,7 @@ body,
   position: sticky;
   top: 0;
   z-index: 10;
-  height: 10rem;
+  height: 13rem;
   background-image: url("./resources/nav_bg.jpg");
   background-size: cover;
 }
@@ -80,10 +77,13 @@ body,
 .my-card:hover {
   box-shadow: 0 0 30px hsl(174, 100%, 50%);
 }
-.my-card-body, .my-card-image, .res-name, .res-info {
+.my-card-body,
+.my-card-image,
+.res-name,
+.res-info {
   position: relative;
   z-index: 5;
-  background-color: rgb(255,255,255);
+  background-color: rgb(255, 255, 255);
 }
 .my-btn {
   border: 0.1rem solid rgb(166, 221, 255);
@@ -102,7 +102,6 @@ body,
   box-shadow: none;
 }
 
-
 /*Card colorful border effect*/
 .my-card::before,
 .my-card::after {
@@ -114,7 +113,9 @@ body,
   width: 103%;
   height: 102%;
   border-radius: 0.5rem;
-  background-image: conic-gradient(from var(--angle), transparent 65%,
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 65%,
     rgb(119, 119, 255),
     rgb(255, 0, 179),
     rgb(255, 0, 115)
@@ -139,11 +140,24 @@ body,
   font-weight: bold;
   line-height: 2rem;
 }
+.web-name h1 {
+  font-size: clamp(1.7rem, 2.8vw, 2.7rem);
+  background: linear-gradient(
+    to bottom right,
+    hsl(69, 100%, 50%),
+    rgb(0, 229, 255),
+    rgb(0, 255, 0)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
 
 
 /*HTML tag setting part*/
 h1 {
-  color: rgb(0, 82, 183);
   font-size: clamp(1.5rem, 2vw, 2.5rem);
   font-weight: bold;
   background: linear-gradient(

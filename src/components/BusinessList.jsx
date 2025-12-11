@@ -4,7 +4,7 @@ const BusinessList = ({userRes}) => {
 
   return (
     <>
-      <section className='restaurant container-fluid px-5'>
+      <main className='restaurant container-fluid px-5'>
         <div className='row'>
           {userRes.map((item) => {
             return (
@@ -36,7 +36,7 @@ const BusinessList = ({userRes}) => {
             );
           })}
         </div>   
-      </section>
+      </main>
     </>
   );  
 };
