@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ravenous_restaurant/static/css/main.887b36c3.css",
+    "main.js": "/ravenous_restaurant/static/js/main.005d92f1.js",
+    "static/js/453.3a17ee8c.chunk.js": "/ravenous_restaurant/static/js/453.3a17ee8c.chunk.js",
+    "static/media/nav_bg.jpg": "/ravenous_restaurant/static/media/nav_bg.4daf42735281cbae81ba.jpg",
+    "static/media/SourGummy-ExtraBold.ttf": "/ravenous_restaurant/static/media/SourGummy-ExtraBold.861a5f7d28dbb466b160.ttf",
+    "static/media/SourGummy-Medium.ttf": "/ravenous_restaurant/static/media/SourGummy-Medium.1130bf432a2006d4eebd.ttf",
+    "static/media/SourGummy-Light.ttf": "/ravenous_restaurant/static/media/SourGummy-Light.738b2cba05fb490126c0.ttf",
+    "static/media/SourGummy-Regular.ttf": "/ravenous_restaurant/static/media/SourGummy-Regular.c6fdbe12d15fcb365a30.ttf",
+    "static/media/SourGummy-Bold.ttf": "/ravenous_restaurant/static/media/SourGummy-Bold.e9951f1c401247a20859.ttf",
+    "static/media/restaurant_img.jpg": "/ravenous_restaurant/static/media/restaurant_img.ecd54126d15eae8c8e12.jpg",
+    "index.html": "/ravenous_restaurant/index.html",
+    "main.887b36c3.css.map": "/ravenous_restaurant/static/css/main.887b36c3.css.map",
+    "main.005d92f1.js.map": "/ravenous_restaurant/static/js/main.005d92f1.js.map",
+    "453.3a17ee8c.chunk.js.map": "/ravenous_restaurant/static/js/453.3a17ee8c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.887b36c3.css",
+    "static/js/main.005d92f1.js"
+  ]
+}
