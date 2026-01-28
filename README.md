@@ -5,6 +5,11 @@ This is my first React web app creat with CRA (Create React App) build tool. Rav
 As always, this project is part of Full-Stack Engineer course of www.codecademy.com
 
 
+## Git branch
+- Source code: main branch
+- Live demo: GitHub Pages (gh-pages branch)
+
+
 ## Lessons Learned 🎯
 
 * React.js library ⚛️
@@ -52,7 +57,7 @@ I'm studying and learning to be a full stack developer.
 <br>
 <br>
 # For CRA beginner 
-# Getting Started with Create React App
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
